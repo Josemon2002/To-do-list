@@ -316,7 +316,7 @@ input[type="checkbox"]{
 }
 .desc {
   display: grid;
-  padding: 1% 2%;
+  padding: 1% 0%;
   justify-content: left;
   overflow: hidden;
   white-space: nowrap;
@@ -334,7 +334,7 @@ input[type="checkbox"]{
   grid-template-columns: 70% 15% 15%;
   height: var(--operheight);
   border-radius: var(--taskboradius);
-    position: absolute;
+  position: absolute;
 }
 .new-inp{
   font-size: var(--taskfontsize);
@@ -425,6 +425,7 @@ input[type="checkbox"]{
     width: 90%;
     height: var(--operheight);
   border-radius: var(--taskboradius);
+  align-content: center;
   }
   .new-inp{
   font-size: var(--taskfontsize);
@@ -572,101 +573,3 @@ input[type="checkbox"]{
   font-size: var(--emptytaskfs);
 }
 }
-/*@media (min-width: 550px) or (max-width: 849px){
-.desc {
-  font-size: 225%;
-  align-content: center;
-} 
-.title {
-  overflow: hidden;
-  display: grid;
-  grid-template-areas:
-    "desc oper";
-  grid-template-rows: auto;
-  grid-template-columns: 40% 60%;
-}
-.oper {
-  display: flex;
-  flex-wrap: wrap;
-  align-content:center;
-  justify-content: right;
-}
-.new-inp {
-  font-size: 120%;
-}
-.new-task {
-  width: 80%;
-}
-.glass {
-  height: 300px;
-  width: 75%;
-  padding: 2% 1%;
-  grid-template-rows: 20% 80%;
-}
-body {
-  width: 100vw;
-  height: 100vh;
-  border-radius: 5px;
-  display: grid;
-  grid-template-areas: "title" 
-                      "task";
-  grid-template-rows: 25% 75%;
-  grid-template-columns: auto;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.243);
-  overflow: auto;
-}
-.myTasks{
-  font-size: 150%;
-}
-.sub-task {
-    font-size: 110%;
-    max-height: 10%;
-}
-}
-
-@media (min-width: 850px){
-  .desc {
-  font-size: 150%;
-} 
-.title {
-  overflow-x: hidden;
-  display: grid;
-  grid-template-areas:
-    "desc"
-    "oper";
-  grid-template-rows: 50% 50%;
-  grid-template-columns: auto;
-}
-.oper {
-  grid-area: oper;
-  padding: 5% 5%;
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-}
-.new-inp {
-  grid-area: new-inp;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  caret-color: #f6f7ed;
-  color: #f6f7ed;
-}
-.new-task {
-  position: sticky;
-  width: 75%;
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  border: 0.05px solid #f6f7ed;
-  display: grid;
-  grid-template-areas: "new-inp add clear";
-  grid-template-rows: auto;
-  grid-template-columns: 76% 12% 12%;
-  height: max-content;
-  border-radius: 5px;
-}
-
-} */
