@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do List</title>
+  <!-- Stylesheets and Fonts -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Decorative Wave Background -->
+  <div class="wave"></div>
+
+  <!-- Title and Add/Clear Task Form -->
+  <div class="title">
+    <div class="desc">
+      Let's be <br />
+      <span style="color: #cef431; text-shadow: 1px 1px 13px #cdf43196">Productive!</span>
+    </div>
+    <div class="oper">
+      <form class="new-task" autocomplete="off">
+        <input class="new-inp" type="text" placeholder="New Task..." />
+        <!-- Add Task Button -->
+        <button type="submit" value="add" class="add" aria-label="Add Task">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="add">
+            <defs>
+              <linearGradient id="addGradient" x1=".5" x2="15.5" y1="8" y2="8" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#dbe64c"></stop>
+                <stop offset=".307" stop-color="#bac06d"></stop>
+                <stop offset=".954" stop-color="#b8c32f"></stop>
+                <stop offset="1" stop-color="#bcc72b"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="90%" height="90%" x=".5" y=".5" fill="url(#addGradient)" rx="2.5" ry="2.5"></rect>
+            <path fill="#000" d="M11,7.5h-2.5v-2.5c0-.2764-.2236-.5-.5-.5s-.5.2236-.5.5v2.5h-2.5c-.2764,0-.5.2236-.5.5s.2236.5.5.5h2.5v2.5c0,.2764.2236.5.5.5s.5-.2236.5-.5v-2.5h2.5c.2764,0,.5-.2236.5-.5s-.2236-.5-.5-.5Z"></path>
+          </svg>
+        </button>
+        <!-- Clear Task Button -->
+        <button type="button" value="clear" class="clear" aria-label="Clear Task">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="multiply">
+            <defs>
+              <linearGradient id="clearGradient" x1=".5" x2="15.5" y1="8" y2="8" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#dbe64c"></stop>
+                <stop offset=".307" stop-color="#bac06d"></stop>
+                <stop offset=".954" stop-color="#b8c32f"></stop>
+                <stop offset="1" stop-color="#bcc72b"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="90%" height="90%" x=".5" y=".5" fill="url(#clearGradient)" rx="2.5" ry="2.5"></rect>
+            <line x1="5.5" y1="5.5" x2="10.5" y2="10.5" stroke="#000" stroke-width="1" stroke-linecap="round" />
+            <line x1="10.5" y1="5.5" x2="5.5" y2="10.5" stroke="#000" stroke-width="1" stroke-linecap="round" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Task List Section -->
+  <div class="task">
+    <div class="glass">
+      <div class="myTasks">My Tasks</div>
+      <div class="tasksec"></div>
+    </div>
+  </div>
+
+  <!-- JS loaded here for faster initial rendering -->
+  <script src="todo.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>To Do List</title>
+    <body>
+      <div class="wave"></div>
+      <div class="title">
+        <div class="desc">
+          Let's be <br /><span
+            style="color: #cef431; text-shadow: 1px 1px 13px #cdf43196"
+            >Productive!</span
+          >
+        </div>
+        <div class="oper">
+          <form class="new-task">
+            <input class="new-inp" type="text" placeholder="New Task..." />
+            <button type="submit" value="add" class="add">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                id="add"
+              >
+                <defs>
+                  <linearGradient
+                    id="a"
+                    x1=".5"
+                    x2="15.5"
+                    y1="8"
+                    y2="8"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop
+                      offset="0"
+                      stop-color="#dbe64c"
+                      class="stopColor85c48d svgShape"
+                    ></stop>
+                    <stop
+                      offset=".307"
+                      stop-color="#bac06d"
+                      class="stopColor6dc09c svgShape"
+                    ></stop>
+                    <stop
+                      offset=".954"
+                      stop-color="#b8c32f"
+                      class="stopColor2fb6c3 svgShape"
+                    ></stop>
+                    <stop
+                      offset="1"
+                      stop-color="#bcc72b"
+                      class="stopColor2bb6c7 svgShape"
+                    ></stop>
+                  </linearGradient>
+                </defs>
+                <rect
+                  width="90%"
+                  height="90%"
+                  x=".5"
+                  y=".5"
+                  fill="url(#a)"
+                  rx="2.5"
+                  ry="2.5"
+                ></rect>
+                <path
+                  fill="#000"
+                  d="M11,7.5h-2.5v-2.5c0-.2764-.2236-.5-.5-.5s-.5.2236-.5.5v2.5h-2.5c-.2764,0-.5.2236-.5.5s.2236.5.5.5h2.5v2.5c0,.2764.2236.5.5.5s.5-.2236.5-.5v-2.5h2.5c.2764,0,.5-.2236.5-.5s-.2236-.5-.5-.5Z"
+                  class="colorffffff svgShape"
+                ></path>
+              </svg>
+            </button>
+            <button type="submit" value="clear" class="clear">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                id="multiply"
+              >
+                <defs>
+                  <linearGradient
+                    id="a"
+                    x1=".5"
+                    x2="15.5"
+                    y1="8"
+                    y2="8"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#dbe64c"></stop>
+                    <stop offset=".307" stop-color="#bac06d"></stop>
+                    <stop offset=".954" stop-color="#b8c32f"></stop>
+                    <stop offset="1" stop-color="#bcc72b"></stop>
+                  </linearGradient>
+                </defs>
+                <rect
+                  width="90%"
+                  height="90%"
+                  x=".5"
+                  y=".5"
+                  fill="url(#a)"
+                  rx="2.5"
+                  ry="2.5"
+                ></rect>
+                <line
+                  x1="5.5"
+                  y1="5.5"
+                  x2="10.5"
+                  y2="10.5"
+                  stroke="#000"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                />
+                <line
+                  x1="10.5"
+                  y1="5.5"
+                  x2="5.5"
+                  y2="10.5"
+                  stroke="#000"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="task">
+        <div class="glass">
+          <div class="myTasks">My Tasks</div>
+          <div class="tasksec"></div>
+        </div>
+      </div>
+    </body>
+  </head>
+  <script src="todo.js"></script>
+</html> -->
