@@ -1,6 +1,5 @@
 let form = document.querySelector("form");
 let new_inp = document.querySelector(".new-inp");
-let add = document.querySelector(".add");
 let glass_box = document.querySelector(".glass");
 let check_box = document.querySelector(".cb");
 let new_task = document.querySelector(".new-task");
@@ -145,19 +144,22 @@ glass_box.addEventListener("click", function (event) {
   }
 });
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const button = e.submitter;
-
-  if (button.value === "add") {
-    update_new_task(new_inp.value);
-  } else if (button.value === "clear") {
-    new_inp.value = "";
-
-    new_inp.focus();
+document.querySelector('.clear').addEventListener('click', function() {
+  if(new_inp.value == ""){
+    new_task.classList.add("new-task-shake");
   }
+  new_inp.value = '';
+  new_inp.focus();
+  new_task.addEventListener("animationend", function () {
+    new_task.classList.remove("new-task-shake");
+  });
 });
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  update_new_task(new_inp.value);
+});
+
 window.addEventListener("load", handleResize);
 window.addEventListener("resize", handleResize);
 function handleResize() {
