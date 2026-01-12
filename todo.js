@@ -5,7 +5,7 @@ let check_box = document.querySelector(".cb");
 let new_task = document.querySelector(".new-task");
 let task_sec = document.querySelector(".tasksec");
 let tasks = JSON.parse(localStorage.getItem("MyTask")) || [];
-
+ 
 document.addEventListener("DOMContentLoaded", function () {
   if (tasks.length === 0) {
     let subTaskHTML = `<div class="empty-task">No tasks for now.</div>`;
@@ -28,7 +28,7 @@ ${taskText.text}
     });
   }
 });
-
+ 
 function update_new_task(input) {
   new_task.classList.remove("new-task-shake");
   if (input != "") {
@@ -37,99 +37,99 @@ function update_new_task(input) {
       emptyTask.remove();
     }
     let subTaskHTML = `<div class="sub-task">
-
+ 
 <input class="cb" type="checkbox">
-
+ 
 <div class="task-item">${input}</div>
-
+ 
 <svg class="del" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="Delete">
-
+ 
 <path d="M298.656 187.5c-10.096 0-18.281 8.185-18.281 18.281v129.188c0 10.096 8.185 18.281 18.281 18.281s18.281-8.185 18.281-18.281V205.781c.001-10.096-8.184-18.281-18.281-18.281z" fill="transparent" class="color000000 svgShape"></path>
-
+ 
 <path class="hover-color" d="M256 0C114.615 0 0 114.615 0 256s114.615 256 256 256 256-114.615 256-256S397.385 0 256 0zm109.688 163.125v202.312c0 20.193-16.37 36.562-36.562 36.562h-146.25c-20.193 0-36.562-16.37-36.562-36.562V163.125c-13.462 0-24.375-10.913-24.375-24.375s10.913-24.375 24.375-24.375h49.796c3.232 0 6.332-1.284 8.618-3.57l17.236-17.236a12.19 12.19 0 0 1 8.618-3.57h50.841c3.232 0 6.332 1.284 8.618 3.57l17.236 17.236a12.186 12.186 0 0 0 8.618 3.57h49.795c13.462 0 24.375 10.913 24.375 24.375s-10.916 24.375-24.377 24.375z" fill="#9b9d9d" class="color000000 svgShape"></path>
-
+ 
 <path d="M213.344 187.5c-10.096 0-18.281 8.185-18.281 18.281v129.188c0 10.096 8.185 18.281 18.281 18.281s18.281-8.185 18.281-18.281V205.781c0-10.096-8.185-18.281-18.281-18.281z" fill="transparent" class="color000000 svgShape"></path>
-
+ 
 </div></div><br>`;
-
+ 
     task_sec.insertAdjacentHTML("beforeend", subTaskHTML);
-
+ 
     new_inp.value = "";
-
+ 
     new_inp.focus();
-
+ 
     tasks.push({ text: input, checked: false });
-
+ 
     localStorage.setItem("MyTask", JSON.stringify(tasks));
-
+ 
     // localStorage.removeItem('MyTask');
   } else {
     new_task.classList.add("new-task-shake");
-
+ 
     new_inp.focus();
   }
-
+ 
   new_task.addEventListener("animationend", function () {
     new_task.classList.remove("new-task-shake");
   });
 }
-
+ 
 glass_box.addEventListener("click", function (event) {
   let taskitem = event.target.nextElementSibling;
-
+ 
   if (event.target.checked) {
     taskitem.style.textDecoration = "line-through";
-
+ 
     tasks.forEach((task) => {
       if (task.text === event.target.nextElementSibling.textContent) {
         task.checked = true;
-
+ 
         localStorage.setItem("MyTask", JSON.stringify(tasks));
       }
     });
   } else {
     taskitem.style.textDecoration = "none";
-
+ 
     tasks.forEach((task) => {
       if (task.text === event.target.nextElementSibling.textContent) {
         task.checked = false;
-
+ 
         localStorage.setItem("MyTask", JSON.stringify(tasks));
       }
     });
   }
-
+ 
   let delButton = event.target.closest(".del");
-
+ 
   if (delButton) {
     let subTask = delButton.closest(".sub-task");
-
+ 
     let userTask = subTask.querySelector(".task-item");
-
+ 
     console.log(userTask);
-
+ 
     if (subTask) {
       let nextElem = subTask.nextSibling;
-
+ 
       if (nextElem && nextElem.nodeName === "BR") {
         nextElem.remove();
       }
-
+ 
       subTask.remove();
-
+ 
       let loc_storage = localStorage.getItem("MyTask");
-
+ 
       if (loc_storage) {
         let tasks = [];
-
+ 
         tasks = JSON.parse(loc_storage);
-
+ 
         let index = tasks.findIndex(
-          (item) => item.text === userTask.textContent.trim()
+          (item) => item.text.trim() === userTask.textContent.trim()
         );
-
+ 
         console.log(index);
-
+ 
         if (index > -1) {
           tasks.splice(index, 1);
           localStorage.setItem("MyTask", JSON.stringify(tasks));
@@ -143,7 +143,7 @@ glass_box.addEventListener("click", function (event) {
     }
   }
 });
-
+ 
 document.querySelector('.clear').addEventListener('click', function() {
   if(new_inp.value == ""){
     new_task.classList.add("new-task-shake");
@@ -154,18 +154,18 @@ document.querySelector('.clear').addEventListener('click', function() {
     new_task.classList.remove("new-task-shake");
   });
 });
-
+ 
 form.addEventListener('submit', function(e) {
   e.preventDefault();
   update_new_task(new_inp.value);
 });
-
+ 
 window.addEventListener("load", handleResize);
 window.addEventListener("resize", handleResize);
 function handleResize() {
   let height = window.innerHeight;
   let width = window.innerWidth;
-
+ 
   if (width <= 549) {
     let oper = (Number(0.3) * height * Number(0.6)) / Number(2.5);
     let task = Number(0.7) * height;
@@ -173,7 +173,7 @@ function handleResize() {
     let mytasks = Number(0.15) * glass;
     let tasksec = Number(0.85) * glass;
     let subtask = Number(0.1) * tasksec;
-
+ 
     document.documentElement.style.setProperty(
       `--title`,
       Number(0.3) * height + "px"
@@ -251,7 +251,7 @@ function handleResize() {
     let mytasks = Number(0.15) * glass;
     let tasksec = Number(0.85) * glass;
     let subtask = Number(0.1) * tasksec;
-
+ 
     document.documentElement.style.setProperty(
       `--title`,
       Number(0.3) * height + "px"
@@ -330,7 +330,7 @@ function handleResize() {
     let tasksec = Number(0.85) * glass;
     let subtask = Number(0.1) * tasksec;
     let taskwidth = Number(0.4) * width;
-
+ 
     document.documentElement.style.setProperty(
       `--title`,
       Number(0.4) * width + "px"
