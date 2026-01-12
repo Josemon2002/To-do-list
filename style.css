@@ -114,9 +114,9 @@ body {
   padding-bottom: 2%;
   border: 0.05px solid #f6f7ed;
   display: grid;
-  grid-template-areas: "new-inp add clear";
+  grid-template-areas: "new-inp clear";
   grid-template-rows: auto;
-  grid-template-columns: 76% 12% 12%;
+  grid-template-columns: 88% 12%;
   height: max-content;
   border-radius: 5px;
 }
@@ -128,7 +128,7 @@ body {
   caret-color: #f6f7ed;
   color: #f6f7ed;
 }
-.add,.clear{
+.clear{
   border: none;
   background-color: transparent;
   color: #54e6b6;
@@ -143,9 +143,6 @@ body {
   justify-self: center;
   min-width: 75%;
   min-height: 75%;
-}
-.add{
-  grid-area: add;
 }
 .clear{
   grid-area: clear;
@@ -331,7 +328,7 @@ input[type="checkbox"]{
 }
 .new-task {
   width: 80%;
-  grid-template-columns: 70% 15% 15%;
+  grid-template-columns: 85% 15%;
   height: var(--operheight);
   border-radius: var(--taskboradius);
   position: absolute;
@@ -339,7 +336,7 @@ input[type="checkbox"]{
 .new-inp{
   font-size: var(--taskfontsize);
 }
-.add,.clear{
+.clear{
   min-height: var(--addclear);
   min-width: var(--addclear);
 }
@@ -430,7 +427,7 @@ input[type="checkbox"]{
   .new-inp{
   font-size: var(--taskfontsize);
 }
-.add,.clear{
+.clear{
   min-height: var(--addclear);
   min-width: var(--addclear);
 }
